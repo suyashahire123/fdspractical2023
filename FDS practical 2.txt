@@ -1,0 +1,88 @@
+input:-
+
+marks=[]
+
+def data():
+    
+    num=int(input("enter no of students :"))
+    for i in range(0,num):
+        while True:
+            a=input("enter marks of students :")
+            if(a=='ab' or a=='AB'):
+                break
+            a=int(a)
+            if(a>=0 and a<=100):
+                break
+            else:
+                print("enter valid no")
+        marks.append(a)
+    print(marks)
+
+def info():
+    
+    students=len(marks)
+    print("\n total no of students :",students)
+    
+    count=0
+    for i in marks:
+        if(i=='ab' or i=='AB'):
+            count=count+1
+    print("\n no of students absent :",count)
+    
+    present=students-count
+    print("\n no of students present :",present)
+    
+def average():
+    
+    students=len(marks)
+    add=0
+    for i in marks:
+        if (i=='ab' or i=='AB'):
+            marks.remove(i)
+            
+    for i in marks:
+        add=add+i
+    print("\n total marks obtained by students :",add)
+    
+    average=add/students
+    print("\n average marks obtained by students :",average)
+
+def top():
+    
+    highest=max(marks)
+    lowest=min(marks)
+    print("\n maximun marks obtained by students :",highest)
+    print("\n minimum marks obtained by students :",lowest)
+
+def frequency():
+    
+    highest=max(marks)
+    frequency=marks.count(highest)
+    print("\n frequency of students geting maximum marks :",frequency)
+    
+def main():
+    
+    while True:
+        print("\n enter 1: to accept data")
+        print("enter 2: to print info of students attending test")
+        print("enter 3: to get marks,average of students")
+        print("enter 4: to get max ,min marks")
+        print("enter 5: to get frequency of max marks")
+    
+        ch=int(input("\n enter your choice :"))
+        if(ch==6):
+            print("end of program!")
+            break
+        if(ch==1):
+            data()
+        if(ch==2):
+            info()
+        if(ch==3):
+            average()
+        if(ch==4):
+            top()
+        if(ch==5):
+            frequency()
+            
+main()
+

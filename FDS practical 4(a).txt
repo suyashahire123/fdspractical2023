@@ -1,0 +1,88 @@
+input:-
+
+students=[]
+
+def accept():
+    
+    num=int(input("enter the total no of students :"))
+    for i in range(0,num):
+        a=int(input("enter roll no of students who attended the program :"))
+        students.append(a)
+    print("\n students attending the program :",students)
+    print("student info accepted sucessfully!")
+    
+accept()
+
+x=int(input("\n enter the roll no to be searched :"))
+
+def linear():
+    for i in range(len(students)):
+        if (students[i]==x):
+            return i
+    return -1
+    
+def sentinal():
+   
+    last=students[-1]
+    students[-1]=x
+    i=0
+    while(students[i]!=x):
+        i+=1
+    
+    if ((i < students[- 1]) or (students[- 1] == x)):
+        return i
+        
+    return -1
+    
+def main():
+    
+    while True:
+        print("\n  enter 1: to perform linear search")
+        print("enter 2: to perform sentinal search")
+        
+        ch=int(input("enter your choice :"))
+        if(ch==3):
+            print("end of program!")
+            break
+        if(ch==1):
+            index=linear()
+            if (index==-1):
+                print("element not found")
+            else:
+                print("element found at position :",index,"(linear search)")
+        if(ch==2):
+            index=sentinal()
+            if (index==-1):
+                print("element not found")
+            else:
+                print("element found at position :",index,"(sentinal search)")
+        
+main()
+
+output:-
+
+enter the total no of students :5
+enter roll no of students who attended the program :1
+enter roll no of students who attended the program :2
+enter roll no of students who attended the program :3
+enter roll no of students who attended the program :4
+enter roll no of students who attended the program :5
+students attending the program : [1, 2, 3, 4, 5]
+student info accepted sucessfully!
+
+ enter the roll no to be searched :3
+ enter 1: to perform linear search
+enter 2: to perform sentinal search
+enter your choice :1
+element found at position : 2 (linear search)
+
+  enter 1: to perform linear search
+enter 2: to perform sentinal search
+enter your choice :2
+element found at position : 2 (sentinal search)
+
+  enter 1: to perform linear search
+enter 2: to perform sentinal search
+enter your choice :3
+end of program!
+> 

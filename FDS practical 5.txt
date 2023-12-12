@@ -1,0 +1,81 @@
+input:-
+
+students=[]
+
+def accept():
+    num=int(input("enter total no of students :"))
+    for i in range(0,num):
+        a=float(input("enter percentage of students :"))
+        students.append(a)
+    print("\n percentage of students :",students)
+    print("data accepted sucessfully!")
+accept()
+
+def selection():
+    temp=0
+    for i in range(0, len(students)-1):    
+        min_index=i
+        for j in range(i+1, len(students)):    
+            if(students[min_index] > students[j]):    
+                min_index=j
+                temp = students[i];    
+                students[i] = students[j];    
+                students[j] = temp;    
+            
+    print("sorted array :",students)
+            
+def bubble():
+    
+    temp=0
+    for i in range(0, len(students)):    
+        for j in range(i+1, len(students)-1):    
+            if(students[i] > students[i+1]):    
+
+                temp = students[i];    
+                students[i] = students[j];    
+                students[j] = temp;    
+    
+    print(students)
+
+def top():
+    print("Top",len(students),"Marks are : ")
+    print(students[::-1])
+
+
+def main():
+    while True:
+        print("\n enter 1: to perform selection sort")
+        print("enter 2: to perform bubble sort")
+        
+        ch=int(input("enter your choice :"))
+        if(ch==3):
+            print("end of program!")
+            break
+        if(ch==1):
+            selection()
+        if(ch==2):
+            bubble()
+	    top() 
+
+
+main()
+
+output:-
+
+enter total no of students :5
+enter percentage of students :10
+enter percentage of students :12
+enter percentage of students :8
+enter percentage of students :6
+enter percentage of students :7
+percentage of students : [10.0, 12.0, 8.0, 6.0, 7.0]
+data accepted sucessfully!
+
+ enter 1: to perform selection sort
+enter 2: to perform bubble sort
+enter your choice :1
+sorted array : [7.0, 6.0, 8.0, 10.0, 12.0]
+
+ enter 1: to perform selection sort
+enter 2: to perform bubble sort
+enter your choice :

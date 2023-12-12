@@ -1,0 +1,156 @@
+input:-
+cricket=[]
+football=[]
+badminton=[]
+
+def data():
+    
+    num=int(input("\n enter no of students playing cricket :"))
+    for i in range(0,num):
+        x=str(input("enter names of students playing cricket :"))
+        cricket.append(x)
+    print(cricket)
+
+    num1=int(input("\n enter no of students playing football :"))
+    for i in range(0,num1):
+        y=str(input("enter names of students playing football :"))
+        football.append(y)
+    print(football)
+
+    num2=int(input("\n enter no of students playing badminton :"))
+    for i in range(0,num2):
+        z=str(input("enter names of students playing badminton :"))
+        badminton.append(z)
+    print(badminton)
+    
+def intersection():
+    a=[]
+    for i in cricket:
+        for j in badminton:
+            if (i==j):
+                a.append(i)
+    print("\n students playing both cricket and badminton are :",a)
+
+def either():
+    b=[]
+    for i in cricket:
+        if i not in badminton:
+            b.append(i)
+            
+    for i in badminton:
+        if i not in cricket:
+            b.append(i)
+    print("students playing either cricket or badminton are :",b)
+
+def only():
+    c=[]
+    for i in football:
+        if i not in badminton:
+            if i not in cricket:
+                c.append(i)
+    print("students playing only football :",c)
+
+def common():
+    d=[]
+    for i in cricket:
+        if i in football:
+            if i not in badminton:
+                d.append(i)
+    print("students playing both cricket and football but not badminton :",d)
+    
+def main():
+    while True:
+        print("\n enter 1: to accept data")
+        print("enter 2: to get info of students playing cricket and badminton")
+        print("enter 3: to get info of students playing either of them")
+        print("enter 4: to get info of students playing only football")
+        print("enter 5: to get info of students playing cricket and football but not badminton")
+        
+        ch=int(input("\n enter your choice :"))
+        if(ch==6):
+            print("enf of progam!")
+            break
+        if(ch==1):
+            data()
+        if(ch==2):
+            intersection()
+        if(ch==3):
+            either()
+        if(ch==4):
+            only()
+        if(ch==5):
+            common()
+main()
+
+            
+output:-
+
+enter 1: to accept data
+enter 2: to get info of students playing cricket and badminton
+enter 3: to get info of students playing either of them
+enter 4: to get info of students playing only football
+enter 5: to get info of students playing cricket and football but not badminton
+enter your choice :1
+enter no of students playing cricket :3
+enter names of students playing cricket :raj
+enter names of students playing cricket :harsh
+enter names of students playing cricket :bumrah
+['raj', 'harsh', 'bumrah']
+
+ enter no of students playing football :3
+ enter names of students playing football :harsh
+ enter names of students playing football :prajwal
+ enter names of students playing football :persistant
+ ['harsh', 'prajwal', 'persistant']
+
+ enter no of students playing badminton :3
+ enter names of students playing badminton :persistant
+ enter names of students playing badminton :raj
+ enter names of students playing badminton :pvsindhu
+ ['persistant', 'raj', 'pvsindhu']
+
+ enter 1: to accept data
+enter 2: to get info of students playing cricket and badminton
+enter 3: to get info of students playing either of them
+enter 4: to get info of students playing only football
+enter 5: to get info of students playing cricket and football but not badminton
+
+ enter your choice :2
+ students playing both cricket and badminton are : ['raj']
+
+ enter 1: to accept data
+enter 2: to get info of students playing cricket and badminton
+enter 3: to get info of students playing either of them
+enter 4: to get info of students playing only football
+enter 5: to get info of students playing cricket and football but not badminton
+
+ enter your choice :3
+ students playing either cricket or badminton are : ['harsh', 'bumrah', 'persistant', 'pvsindhu']
+
+ enter 1: to accept data
+enter 2: to get info of students playing cricket and badminton
+enter 3: to get info of students playing either of them
+enter 4: to get info of students playing only football
+enter 5: to get info of students playing cricket and football but not badminton
+
+ enter your choice :4
+ students playing only football : ['prajwal']
+
+ enter 1: to accept data
+enter 2: to get info of students playing cricket and badminton
+enter 3: to get info of students playing either of them
+enter 4: to get info of students playing only football
+enter 5: to get info of students playing cricket and football but not badminton
+
+ enter your choice :5
+ students playing both cricket and football but not badminton : ['harsh']
+
+ enter 1: to accept data
+enter 2: to get info of students playing cricket and badminton
+enter 3: to get info of students playing either of them
+enter 4: to get info of students playing only football
+enter 5: to get info of students playing cricket and football but not badminton
+
+ enter your choice :6
+ enf of progam!
+> 

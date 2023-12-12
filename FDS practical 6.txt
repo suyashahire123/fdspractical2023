@@ -1,0 +1,65 @@
+INPUT:-
+
+A = []
+def accept_array(A):
+    n = int(input("Enter the total no. of student : "))
+    for i in range(n):
+        x = float(input("Enter the FE percentage of student : " ))
+        A.append(x)
+    print("Array accepted successfully :",A)
+
+def partition(A,p, j):
+    i = p + 1
+
+    while (j >= i):
+        while(i <= j and A[p] >= A[i]):
+            i = i + 1
+        while (A[p] < A[j]):
+            j = j - 1
+        if (j > i):
+            temp = A[j]
+            A[j] = A[i]
+            A[i] = temp
+    temp = A[p]
+    A[p] = A[j]
+    A[j] = temp
+    return j
+
+def Quicksort(A,p, j):
+    if(p < j):
+        mid = partition(A, p, j)
+        Quicksort(A, p, mid - 1)
+        Quicksort(A, mid + 1, j)
+
+def main():
+    A = []
+    while True:
+        print("\n 1 : Accept & Display the FE Marks")
+        print("2 : Quick sort ascending order and display top five scores")
+        print("3 : Exit")
+
+
+        ch = int(input("Enter your choice : "))
+        if (ch == 3):
+            print("End of Program")
+            break
+        elif (ch == 1):
+
+            accept_array(A)
+            
+        elif (ch == 2):
+            print("Marks before sorting")
+            print(A)
+            n = len(A)
+            Quicksort(A,0, n - 1)
+            print("Marks after sorting")
+            print(A)
+            if (n >= 5):
+                print("Top Five Scores : ")
+                for i in range(n - 1, n - 6, -1):
+                    print( A[i])
+
+        else:
+            print("Wrong choice entered !! Try again")
+
+main()
